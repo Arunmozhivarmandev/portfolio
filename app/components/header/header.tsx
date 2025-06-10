@@ -17,7 +17,7 @@ const navItems = [
 
 export default function Header() {
   return (
-    <nav className="sticky top-10 mt-5 z-50">
+    <nav className="sticky top-10  z-50">
       <NavigationMenu className="flex justify-center !w-full !max-w-full">
         <NavigationMenuList className="bg-secondary/28 backdrop-blur-md rounded-full flex w-[500px] justify-between gap-4 py-3.5 px-6 ">
           {navItems.map((item) => (

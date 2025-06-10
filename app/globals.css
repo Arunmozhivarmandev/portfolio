@@ -1,6 +1,88 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+@layer utilities {
+  .container {
+    margin-inline: auto;
+    box-sizing: border-box;
+    padding-inline: 10px;
+  }
+
+  @variant lg {
+    .container {
+      max-width: 1020px;
+    }
+  }
+
+  @variant xl {
+    .container {
+      max-width: 1300px;
+    }
+  }
+
+  @variant sm {
+    .container {
+      padding: auto;
+    }
+  }
+}
+
+.hero {
+  /* clip-path: polygon(
+    11% 36%,
+    13% 40%,
+    17% 45%,
+    20% 49%,
+    23% 52%,
+    26% 55%,
+    30% 59%,
+    33% 62%,
+    36% 64%,
+    41% 68%,
+    45% 70%,
+    49% 70%,
+    52% 70%,
+    56% 68%,
+    59% 65%,
+    59% 65%,
+    61% 62%,
+    63% 59%,
+    67% 55%,
+    69% 49%,
+    72% 47%,
+    73% 42%,
+    75% 38%,
+    76% 34%,
+    78% 30%,
+    78% 24%,
+    80% 20%,
+    80% 15%,
+    80% 11%,
+    78% 8%,
+    78% 8%,
+    73% 6%,
+    66% 4%,
+    62% 3%,
+    56% 3%,
+    49% 3%,
+    46% 3%,
+    46% 3%,
+    42% 3%,
+    35% 2%,
+    30% 2%,
+    24% 2%,
+    18% 2%,
+    13% 3%,
+    7% 5%,
+    6% 10%,
+    6% 16%,
+    6% 20%,
+    6% 25%,
+    7% 30%,
+    8% 32%
+  ); */
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -78,7 +160,7 @@
 
 .dark {
   --background: oklch(0.1548 0.0021 286.15);
-  --foreground: oklch(1 0 0);
+  --foreground: oklch(0.5417 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
