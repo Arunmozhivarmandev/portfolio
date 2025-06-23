@@ -16,7 +16,6 @@ export default function Banner() {
 
   useGSAP(() => {
     const ctx = gsap.context(() => {
-      // Animate the image
       if (imageRef.current) {
         gsap.to(imageRef.current, {
           duration: 0.5,
@@ -26,15 +25,14 @@ export default function Banner() {
         });
       }
 
-      // Animate the heading
       if (aboutRef.current) {
-        const split = new SplitText(aboutRef.current, { type: 'words' });
+        const split = new SplitText(aboutRef.current, { type: 'chars' });
 
-        gsap.from(split.words, {
+        gsap.from(split.chars, {
           opacity: 0,
-          duration: 2,
+          duration: 1,
           ease: 'sine.out',
-          stagger: 0.1,
+          stagger: 0.05,
         });
       }
 
