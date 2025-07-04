@@ -11,6 +11,7 @@ import {
   Users,
   Zap,
   Trophy,
+  ArrowLeft,
 } from 'lucide-react';
 
 // Register ScrollTrigger plugin
@@ -21,89 +22,97 @@ if (typeof window !== 'undefined') {
 const experiences = [
   {
     id: 1,
-    phase: 'Getting Started',
+    phase: 'Foundation & Upskilling',
     title: 'Junior Frontend Developer',
-    period: 'Jan 2022 - Jun 2022',
+    period: 'Aug 2023 - Nov 2023',
     icon: Code,
     description:
-      'Started my journey learning the codebase and company workflows. Focused on building foundational skills and contributing to smaller features under mentorship.',
+      'Focused on building solid frontend fundamentals with React and JavaScript. Worked on UI components and practiced integrating APIs in personal and client-assisted projects.',
     achievements: [
-      'Completed onboarding and learned company tech stack',
-      'Fixed 50+ bugs and implemented minor UI improvements',
-      'Built responsive components using React and Tailwind CSS',
-      'Participated in code reviews and learned best practices',
-    ],
-    technologies: ['React', 'JavaScript', 'HTML/CSS', 'Git', 'Tailwind CSS'],
-  },
-  {
-    id: 2,
-    phase: 'Building Confidence',
-    title: 'Frontend Developer',
-    period: 'Jul 2022 - Dec 2022',
-    icon: Zap,
-    description:
-      'Gained confidence and started taking on more complex features. Began working independently on user-facing components and improving application performance.',
-    achievements: [
-      'Developed 3 major feature modules from scratch',
-      'Improved page load times by 40% through optimization',
-      'Collaborated with design team on UI/UX improvements',
-      'Started mentoring new interns joining the team',
+      'Built reusable components using React and Tailwind CSS',
+      'Integrated third-party REST APIs in multiple UIs',
+      'Strengthened fundamentals in JavaScript and Git',
+      'Explored Next.js basics and SSR concepts',
     ],
     technologies: [
       'React',
-      'TypeScript',
-      'Next.js',
-      'SASS',
-      'Redux',
+      'JavaScript',
+      'Tailwind CSS',
+      'Git',
       'API Integration',
     ],
   },
   {
-    id: 3,
-    phase: 'Taking Ownership',
-    title: 'Frontend Developer',
-    period: 'Jan 2023 - Jun 2023',
-    icon: Users,
+    id: 2,
+    phase: 'Going Full Stack',
+    title: 'Full Stack Developer',
+    period: 'Nov 2023 - Aug 2024',
+    icon: Zap,
     description:
-      'Took ownership of larger projects and started leading frontend initiatives. Became the go-to person for complex UI challenges and cross-team collaboration.',
+      'Took on full-stack responsibilities using Express.js and MySQL. Delivered admin panels and CMS-like dashboards with complete CRUD functionality and dynamic routes.',
     achievements: [
-      'Led complete redesign of user dashboard (10k+ daily users)',
-      'Implemented automated testing reducing bugs by 60%',
-      'Collaborated with backend team on API design',
-      'Presented technical solutions to stakeholders',
+      'Developed React + Vite admin panel with dynamic routing',
+      'Created REST APIs using Express.js and MySQL2',
+      'Handled image storage and retrieval using Cloudinary',
+      'Worked on banner/product modules using array mapping',
     ],
     technologies: [
       'React',
-      'TypeScript',
+      'Vite',
+      'Express.js',
+      'MySQL2',
+      'Cloudinary',
+      'Bootstrap',
+    ],
+  },
+  {
+    id: 3,
+    phase: 'Scaling & Optimization',
+    title: 'Frontend Developer',
+    period: 'Aug 2024 - Jan 2024',
+    icon: Users,
+    description:
+      'Focused on performance, modular code, and collaborating with backend and design teams. Led the UI for core modules and refactored legacy features for better performance.',
+    achievements: [
+      'Refactored dashboard components for reusability',
+      'Improved loading speed with code-splitting and lazy loading',
+      'Implemented protected routes and token-based auth UI',
+      'Collaborated on API designs and error handling strategies',
+    ],
+    technologies: [
+      'React',
       'Next.js',
-      'Jest',
-      'Cypress',
-      'GraphQL',
-      'Figma',
+      'Redux Toolkit',
+      'TypeScript',
+      'Axios',
+      'SASS',
     ],
   },
   {
     id: 4,
-    phase: 'Leadership & Growth',
-    title: 'Senior Frontend Developer',
-    period: 'Jul 2023 - Present',
+    phase: 'Modern Stack & Team Leadership',
+    title: 'Senior Full Stack Developer',
+    period: 'Jan 2023 - Present',
     icon: Trophy,
     description:
-      'Promoted to senior role, now leading frontend architecture decisions and mentoring junior developers. Focus on scalability and team productivity.',
+      'Worked as a full stack developer using modern technologies like Prisma and PostgreSQL on the backend. Led the frontend React team, focusing on scalable architecture, UI consistency, and code quality across the project.',
     achievements: [
-      'Architected new component library used across 5 products',
-      'Reduced development time by 30% through better tooling',
-      'Mentoring 2 junior developers and conducting interviews',
-      'Leading migration to modern tech stack and best practices',
+      'Led the frontend team and established scalable component patterns',
+      'Integrated Prisma ORM with PostgreSQL for robust data handling',
+      'Built a dynamic CMS dashboard with nested routing and access control',
+      'Improved developer experience with shadcn/ui and Tailwind CSS',
+      'Mentored junior developers and reviewed code for quality',
+      'Set up GitHub Actions for CI/CD automation',
     ],
     technologies: [
       'React',
-      'TypeScript',
       'Next.js',
-      'Storybook',
-      'Docker',
-      'AWS',
-      'Team Leadership',
+      'TypeScript',
+      'Prisma',
+      'PostgreSQL',
+      'shadcn/ui',
+      'Tailwind CSS',
+      'GitHub Actions',
     ],
   },
 ];
@@ -325,10 +334,10 @@ export default function ExperienceSection() {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen px-4 py-20 transition-colors duration-300"
+      id="experience"
+      className="min-h-screen overflow-x-hidden px-4 py-20 transition-colors duration-300"
     >
       <div className="mx-auto max-w-6xl">
-     
         <div className="mb-16 text-center">
           <h2 ref={titleRef} className="text-primary mb-12 text-3xl font-bold">
             My Journey
@@ -338,7 +347,7 @@ export default function ExperienceSection() {
             <h3 className="mb-4 text-xl font-semibold text-gray-800 dark:text-gray-200">
               {companyInfo.name}
             </h3>
-            <div className="flex flex-wrap justify-center gap-6 text-gray-600 dark:text-gray-400">
+            <div className="flex flex-wrap justify-center gap-6">
               <div className="flex items-center gap-2">
                 <Calendar className="h-5 w-5" />
                 {companyInfo.totalPeriod}
@@ -355,7 +364,7 @@ export default function ExperienceSection() {
         </div>
 
         {/* Timeline */}
-        <div ref={timelineRef} className="relative">
+        <div ref={timelineRef} className="relative pt-8">
           {/* Timeline line */}
           <div className="absolute left-1/2 h-full w-px -translate-x-1/2 transform bg-gray-200 dark:bg-gray-700">
             <div
@@ -385,7 +394,7 @@ export default function ExperienceSection() {
 
                   {/* Phase icon */}
                   <div className="absolute left-1/2 z-20 -translate-x-1/2 -translate-y-8 transform">
-                    <div className="phase-icon flex h-12 w-12 items-center justify-center rounded-full border-2 border-gray-900 bg-white dark:border-white dark:bg-card">
+                    <div className="phase-icon dark:bg-card flex h-12 w-12 items-center justify-center rounded-full border-2 border-gray-900 bg-white dark:border-white">
                       <IconComponent className="h-6 w-6 text-gray-900 dark:text-white" />
                     </div>
                   </div>
@@ -400,34 +409,37 @@ export default function ExperienceSection() {
                       <div className="space-y-6 pt-8">
                         <div>
                           <div
-                            className={`mb-4 inline-block rounded-full bg-gray-100 px-3 py-1 text-sm dark:bg-card/8 backdrop-blur-sm`}
+                            className={`shadow-lg" mb-3 inline-block rounded-full border-0 bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-1 text-sm text-white backdrop-blur-sm`}
                           >
                             {exp.phase}
                           </div>
-                          <h3 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">
+                          <h3 className="text-primary mb-2 text-[25px] font-bold">
                             {exp.title}
                           </h3>
-                          <p className="mb-6 text-lg text-gray-600 dark:text-gray-400">
-                            {exp.period}
-                          </p>
+                          <p className="mb-6 text-lg">{exp.period}</p>
                         </div>
 
-                        <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        <p className="text-[17px] leading-relaxed">
                           {exp.description}
                         </p>
 
                         <div className="space-y-3">
-                          <h4 className="font-semibold text-gray-900 dark:text-white">
+                          <h4 className="text-[16px] font-medium text-gray-900 dark:text-white">
                             Key Achievements:
                           </h4>
-                          <ul className="space-y-2">
+                          <ul className="space-y-2 text-right">
                             {exp.achievements.map((achievement, achIndex) => (
                               <li
                                 key={achIndex}
-                                className="achievement-item flex items-start gap-3 text-gray-700 dark:text-gray-300"
+                                className={`achievement-item flex items-start ${index % 2 === 0 ? 'justify-end' : 'justify-start'} gap-3`}
                               >
-                                <ArrowRight className="mt-1 h-4 w-4 flex-shrink-0 text-gray-500" />
+                                {index % 2 !== 0 && (
+                                  <ArrowRight className="mt-1 h-4 w-4 flex-shrink-0 dark:text-white" />
+                                )}
                                 <span>{achievement}</span>
+                                {index % 2 === 0 && (
+                                  <ArrowLeft className="mt-1 h-4 w-4 flex-shrink-0 dark:text-white" />
+                                )}
                               </li>
                             ))}
                           </ul>
@@ -439,7 +451,7 @@ export default function ExperienceSection() {
                           {exp.technologies.map((tech) => (
                             <span
                               key={tech}
-                              className="tech-item rounded-full border border-gray-200 bg-gray-100 px-3 py-1 text-sm text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300"
+                              className="tech-item dark:bg-muted/30 rounded-full bg-gray-200 px-3 py-1 text-sm dark:text-gray-300"
                             >
                               {tech}
                             </span>

@@ -166,20 +166,18 @@ export default function Skills() {
     <>
       <section
         ref={sectionRef}
+        id={'skills'}
         className="bg-background relative h-[750px] w-full overflow-hidden"
       >
         {/* Header */}
         <div className="m-auto mt-10 w-max text-center">
           <h2 className="text-primary mb-2 text-3xl font-bold">
             My Core Skills
-          </h2> 
+          </h2>
           <div className="mt-15">
             <div className="bg-card/80 rounded-lg border px-6 py-3 text-center backdrop-blur-sm">
               {logos[activeIndex].content.map((content, index) => (
-                <p
-                  key={`content_${index}`}
-                  className="text-muted-foreground text-sm leading-[25px]"
-                >
+                <p key={`content_${index}`} className="text-sm leading-[25px]">
                   {content}
                 </p>
               ))}
@@ -188,13 +186,13 @@ export default function Skills() {
         </div>
 
         {/* SVG Case */}
-        <div className="relative translate-y-10 flex w-full items-center justify-center">
+        <div className="relative flex w-full translate-y-10 items-center justify-center">
           <CaseSvg />
           {/* Rotating Logo Arc */}
-          <div className="translate-y-26 z-20 absolute left-1/2 top-1/2 -translate-x-1/2">
+          <div className="translate-y-26 absolute left-1/2 top-1/2 z-20 -translate-x-1/2">
             <div
               ref={rotatingWrapperRef}
-              className=" h-[450px] w-[900px]"
+              className="h-[450px] w-[900px]"
               style={{ rotate: '-90deg' }} // Set initial position to first logo
             >
               {logos.map((log, i) => {
@@ -212,11 +210,11 @@ export default function Skills() {
                     alt={`Logo ${i}`}
                     width={100}
                     height={100}
-                    className={`absolute h-13 w-13 transition-all duration-300 
-                      ${i === activeIndex
-                        ? "scale-140 brightness-110 z-40 drop-shadow-lg"
-                        : "z-20"
-                      }`}
+                    className={`h-13 w-13 absolute transition-all duration-300 ${
+                      i === activeIndex
+                        ? 'z-40 scale-150 brightness-110 drop-shadow-lg'
+                        : 'z-20'
+                    }`}
                     style={{
                       left: `${450 + x - 24}px`,
                       top: `${225 - y - 24}px`,
@@ -226,12 +224,18 @@ export default function Skills() {
               })}
             </div>
           </div>
-          <Image alt='mask' width={839} height={397} src={'/skillmask.svg'} className='absolute z-30 translate-y-18 scale-110'/>
+          <Image
+            alt="mask"
+            width={839}
+            height={397}
+            src={'/skillmask.svg'}
+            className="translate-y-18 absolute z-30 scale-110"
+          />
         </div>
 
-        <div className="absolute -bottom-15 left-[50%] flex h-[400px] w-[400px] -translate-x-1/2 flex-col items-center justify-center bg-[radial-gradient(circle,_rgba(255,223,128)_0%,_rgba(255,225,225,0.1)_0%,_transparent_70%)] bg-blend-lighten">
+        <div className="-bottom-15 absolute left-[50%] flex h-[400px] w-[400px] -translate-x-1/2 flex-col items-center justify-center bg-[radial-gradient(circle,_rgba(216,191,255,0.5)_0%,_rgba(245,240,255,0.4)_0%,_transparent_70%)] bg-blend-normal dark:bg-[radial-gradient(circle,_rgba(255,223,128,0.6)_0%,_rgba(255,225,225,0.1)_0%,_transparent_70%)]">
           <p>2 years of</p>
-          <h2 className="mt-2 text-4xl font-bold text-white">EXP</h2>
+          <h2 className="mt-2 text-4xl font-bold dark:text-white">EXP</h2>
           <p className="mt-1">
             in{' '}
             <span className="text-primary text-2xl font-bold">

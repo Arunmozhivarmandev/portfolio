@@ -1,30 +1,45 @@
 'use client';
 
+import { Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
+
 import { useEffect, useState } from 'react';
 
-export default function ThemeToggle() {
-  const [theme, setTheme] = useState('dark');
+export function Toggle() {
+  const { setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme');
-    const initial = saved || 'dark';
-    setTheme(initial);
-    document.documentElement.setAttribute('data-theme', initial);
+    setMounted(true);
   }, []);
 
+  if (!mounted) {
+    return (
+      <span
+        className="text-primary border-0 !bg-transparent"
+      >
+        <Sun size={18} className="rotate-0 scale-100 transition-all" />
+      </span>
+    );
+  }
+
+  const isDark = resolvedTheme === 'dark';
+
   const toggleTheme = () => {
-    const next = theme === 'dark' ? 'light' : 'dark';
-    setTheme(next);
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
+    setTheme(isDark ? 'light' : 'dark');
   };
 
   return (
-    <button
+    <span
+      className="text-primary border-0 !bg-transparent"
       onClick={toggleTheme}
-      className="rounded bg-gray-200 px-4 py-2 text-black dark:bg-gray-700 dark:text-white"
     >
-      Toggle {theme === 'dark' ? 'Light' : 'Dark'} Mode
-    </button>
+      {isDark ? (
+        <Sun size={18} className="rotate-0 scale-100 transition-all" />
+      ) : (
+        <Moon size={18} className="rotate-0 scale-100 transition-all" />
+      )}
+      <span className="sr-only">Toggle theme</span>
+    </span>
   );
 }

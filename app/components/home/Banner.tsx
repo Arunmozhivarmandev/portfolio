@@ -41,7 +41,7 @@ export default function Banner() {
         if (ref) {
           gsap.to(ref, {
             duration: 2,
-            color: 'white',
+            opacity:1
           });
         }
       });
@@ -51,9 +51,12 @@ export default function Banner() {
   }, []);
 
   return (
-    <div className="container flex h-[calc(100vh-92px)]">
+    <div id={'about'} className="container flex h-[calc(100vh-92px)]">
       <div className="flex h-full flex-col justify-center space-y-4 md:w-1/2">
-        <h1 ref={aboutRef} className="text-[42px] font-medium text-white">
+        <h1
+          ref={aboutRef}
+          className="text-[40px] font-medium text-black dark:text-white"
+        >
           Hi, I am Arunmozhivarman
         </h1>
         <p className="text-[17px] leading-10">
@@ -62,7 +65,7 @@ export default function Banner() {
             ref={(el) => {
               whiteRef.current[0] = el;
             }}
-            className="font-medium"
+            className="font-medium opacity-0 text-black dark:text-white"
           >
             Full Stack Web Developer
           </span>{' '}
@@ -71,13 +74,13 @@ export default function Banner() {
             ref={(el) => {
               whiteRef.current[1] = el;
             }}
-            className="font-medium"
+            className="font-medium opacity-0 text-black dark:text-white"
           >
             2 years
           </span>{' '}
           of hands-on experience. Specialized in building modern web apps using
           React, Next.js & Node.js. Dedicated to crafting clean UI and scalable
-          backend systems. Always learning, always building — let's create
+          backend systems. Always learning, always building — let&apos;s create
           something amazing.
         </p>
       </div>

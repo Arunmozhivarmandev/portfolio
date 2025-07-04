@@ -7,7 +7,6 @@ export default function Box() {
   const boxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const vw = window.innerWidth;
     const targetX = 400;
 
     if (boxRef.current) {

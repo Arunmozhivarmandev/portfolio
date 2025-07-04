@@ -1,12 +1,11 @@
-import { forwardRef } from 'react';
 
-const CaseSvg = forwardRef<SVGPathElement, {}>(function CaseSvg(_, ref) {
+const CaseSvg = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="839"
       height="377"
-      className='scale-110 relative z-10 translate-y-18'
+      className="translate-y-18 relative z-10 scale-110"
       viewBox="0 0 839 377"
       fill="none"
     >
@@ -16,6 +15,6 @@ const CaseSvg = forwardRef<SVGPathElement, {}>(function CaseSvg(_, ref) {
       />
     </svg>
   );
-});
+};
 
 export default CaseSvg;
